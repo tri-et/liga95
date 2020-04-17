@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DepositSreen extends StatelessWidget {
-  static const routeName = '/deposit-screen';
+class WithdrawSreen extends StatelessWidget {
+  static const routeName = '/withdraw-screen';
   static const Color colorBox = Color(0xff262626);
   static const TextStyle _lableInfo = TextStyle(
     color: Color(0xffffe600),
@@ -31,7 +31,7 @@ class DepositSreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               }),
-          title: Text("Deposit"),
+          title: Text("Withdraw"),
         ),
         body: SingleChildScrollView(
           child: ConstrainedBox(
@@ -86,77 +86,7 @@ class DepositSreen extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Flexible(
-                        child: Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                "Ke Bank",
-                                style: _lable,
-                              ),
-                              SizedBox(height: 5.0),
-                              SizedBox(
-                                height: 45.0,
-                                child: TextField(
-                                  decoration: _inputDecoration.copyWith(
-                                    fillColor: Colors.white,
-                                    hintText: '--Pilih--',
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 8.0),
-                      Flexible(
-                        child: Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                "Nama Acount",
-                                style: _lable,
-                              ),
-                              SizedBox(height: 5.0),
-                              SizedBox(
-                                height: 45.0,
-                                child: TextField(
-                                  style: _lable,
-                                  decoration: _inputDecoration,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 10.0),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        "Nomor Account",
-                        style: _lable,
-                      ),
-                      SizedBox(height: 5.0),
-                      SizedBox(
-                        height: 45.0,
-                        child: TextField(
-                          style: _lable,
-                          decoration: _inputDecoration,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 15.0),
+                  SizedBox(height: 20.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
