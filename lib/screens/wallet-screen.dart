@@ -41,219 +41,217 @@ class WalletScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xff1A1A1A),
-        body: SingleChildScrollView(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              minHeight: MediaQuery.of(context).size.height,
-            ),
-            child: Stack(
-              children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Container(
-                      height: 185.0,
-                      padding: EdgeInsets.fromLTRB(0, 45.0, 0, 30.0),
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Color(0xff0f4e90), Color(0xff10284b)],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                        ),
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          Text(
-                            "Main Wallet",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16.0,
-                            ),
-                          ),
-                          Text(
-                            "800,000.00",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 24.0,
-                            ),
-                          ),
-                        ],
+      backgroundColor: Color(0xff1A1A1A),
+      body: SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: MediaQuery.of(context).size.height,
+          ),
+          child: Stack(
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Container(
+                    height: 185.0,
+                    padding: EdgeInsets.fromLTRB(0, 45.0, 0, 30.0),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Color(0xff0f4e90), Color(0xff10284b)],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
                       ),
                     ),
-                    Container(
-                      padding: EdgeInsets.only(top: 70.0),
-                      child: Center(
-                        child: Text(
-                          "Dompet",
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          "Main Wallet",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: 16.0,
                           ),
+                        ),
+                        Text(
+                          "800,000.00",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 70.0),
+                    child: Center(
+                      child: Text(
+                        "Dompet",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
                         ),
                       ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Container(
-                          padding: EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 0.0),
-                          child: Column(
-                            children: <Widget>[
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Flexible(
-                                    child: Container(
-                                        height: 104,
-                                        child: ListView.builder(
-                                            physics:
-                                                const NeverScrollableScrollPhysics(),
-                                            padding: EdgeInsets.all(0.0),
-                                            itemCount: leftData.length,
-                                            itemBuilder: (BuildContext context,
-                                                int index) {
-                                              return Dompet(
-                                                index: index,
-                                                data: leftData[index],
-                                              );
-                                            })),
-                                  ),
-                                  SizedBox(width: 5.0),
-                                  Flexible(
-                                    child: Container(
-                                        height: 104,
-                                        child: ListView.builder(
-                                            physics:
-                                                const NeverScrollableScrollPhysics(),
-                                            padding: EdgeInsets.all(0.0),
-                                            itemCount: rightData.length,
-                                            itemBuilder: (BuildContext context,
-                                                int index) {
-                                              return Dompet(
-                                                index: index,
-                                                data: rightData[index],
-                                              );
-                                            })),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: 15.0),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Flexible(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                          "Dari Dompet",
-                                          style: _labletTextStyle,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 0.0),
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Flexible(
+                                  child: Container(
+                                      height: 104,
+                                      child: ListView.builder(
+                                          physics:
+                                              const NeverScrollableScrollPhysics(),
+                                          padding: EdgeInsets.all(0.0),
+                                          itemCount: leftData.length,
+                                          itemBuilder: (BuildContext context,
+                                              int index) {
+                                            return Dompet(
+                                              index: index,
+                                              data: leftData[index],
+                                            );
+                                          })),
+                                ),
+                                SizedBox(width: 5.0),
+                                Flexible(
+                                  child: Container(
+                                      height: 104,
+                                      child: ListView.builder(
+                                          physics:
+                                              const NeverScrollableScrollPhysics(),
+                                          padding: EdgeInsets.all(0.0),
+                                          itemCount: rightData.length,
+                                          itemBuilder: (BuildContext context,
+                                              int index) {
+                                            return Dompet(
+                                              index: index,
+                                              data: rightData[index],
+                                            );
+                                          })),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 15.0),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Flexible(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        "Dari Dompet",
+                                        style: _labletTextStyle,
+                                      ),
+                                      SizedBox(height: 5.0),
+                                      SizedBox(
+                                        height: 38.0,
+                                        child: TextField(
+                                          textAlign: TextAlign.center,
+                                          decoration: _inputDecoration,
                                         ),
-                                        SizedBox(height: 5.0),
-                                        SizedBox(
-                                          height: 38.0,
-                                          child: TextField(
-                                            textAlign: TextAlign.center,
-                                            decoration: _inputDecoration,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
-                                  SizedBox(width: 5.0),
-                                  Flexible(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                          "Ke Dompet",
-                                          style: _labletTextStyle,
+                                ),
+                                SizedBox(width: 5.0),
+                                Flexible(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        "Ke Dompet",
+                                        style: _labletTextStyle,
+                                      ),
+                                      SizedBox(height: 5.0),
+                                      SizedBox(
+                                        height: 38.0,
+                                        child: TextField(
+                                          textAlign: TextAlign.center,
+                                          decoration: _inputDecoration,
                                         ),
-                                        SizedBox(height: 5.0),
-                                        SizedBox(
-                                          height: 38.0,
-                                          child: TextField(
-                                            textAlign: TextAlign.center,
-                                            decoration: _inputDecoration,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                              SizedBox(height: 5.0),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    "Jumlah",
-                                    style: _labletTextStyle,
+                                      ),
+                                    ],
                                   ),
-                                  SizedBox(
-                                    height: 35,
-                                    child: TextField(
-                                      decoration: _inputDecoration.copyWith(
-                                          hintText: ""),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              SizedBox(height: 10.0),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Flexible(child: TransferButton()),
-                                  SizedBox(width: 5.0),
-                                  Flexible(child: CashOutButton()),
-                                ],
-                              ),
-                            ],
-                          ),
+                                )
+                              ],
+                            ),
+                            SizedBox(height: 5.0),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Jumlah",
+                                  style: _labletTextStyle,
+                                ),
+                                SizedBox(
+                                  height: 35,
+                                  child: TextField(
+                                    decoration:
+                                        _inputDecoration.copyWith(hintText: ""),
+                                  ),
+                                )
+                              ],
+                            ),
+                            SizedBox(height: 10.0),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Flexible(child: TransferButton()),
+                                SizedBox(width: 5.0),
+                                Flexible(child: CashOutButton()),
+                              ],
+                            ),
+                          ],
                         ),
-                        SizedBox(height: 20.0),
-                        DateTransaction(dateTransaction: "13 Mar 2020"),
-                        CashInfo(
-                          isCashIn: true,
-                          data: ultama,
-                        ),
-                        DateTransaction(dateTransaction: "12 Mar 2020"),
-                        CashInfo(
-                          isCashIn: false,
-                          data: jdb,
-                        ),
-                        DateTransaction(dateTransaction: "11 Mar 2020"),
-                        CashInfo(
-                          isCashIn: true,
-                          data: ultama,
-                        ),
-                        SizedBox(
-                          height: 2.0,
-                        ),
-                        CashInfo(
-                          isCashIn: false,
-                          data: jdb,
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-                Positioned(
-                  child: Transaction(),
-                  top: 130.0,
-                  left: 30.0,
-                  right: 30.0,
-                ),
-              ],
-            ),
+                      ),
+                      SizedBox(height: 20.0),
+                      DateTransaction(dateTransaction: "13 Mar 2020"),
+                      CashInfo(
+                        isCashIn: true,
+                        data: ultama,
+                      ),
+                      DateTransaction(dateTransaction: "12 Mar 2020"),
+                      CashInfo(
+                        isCashIn: false,
+                        data: jdb,
+                      ),
+                      DateTransaction(dateTransaction: "11 Mar 2020"),
+                      CashInfo(
+                        isCashIn: true,
+                        data: ultama,
+                      ),
+                      SizedBox(
+                        height: 2.0,
+                      ),
+                      CashInfo(
+                        isCashIn: false,
+                        data: jdb,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              Positioned(
+                child: Transaction(),
+                top: 130.0,
+                left: 30.0,
+                right: 30.0,
+              ),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
 
