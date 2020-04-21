@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:liga95/screens/account-screen.dart';
 import 'package:liga95/screens/home-screen.dart';
+import 'package:liga95/screens/laporan-screen.dart';
+import 'package:liga95/screens/mesej-screen.dart';
 import 'package:liga95/screens/wallet-screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -10,18 +12,13 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  
   int _currentPage = 0;
   PageController _pageController;
   final List<Widget> _children = [
     HomeScreen(),
+    LaporanScreen(),
     WalletScreen(),
-    Container(
-      child: Center(child: Text("page2")),
-    ),
-    Container(
-      child: Center(child: Text("page4")),
-    ),
+    MesejScreen(),
     AccountScreen(),
   ];
   void _navigateToPage(int index) {

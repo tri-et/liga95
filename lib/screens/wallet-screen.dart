@@ -429,46 +429,36 @@ class CashInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.center,
-      padding: EdgeInsets.fromLTRB(15.0, 14.0, 5.0, 14.0),
-      width: double.infinity,
       color: Color(0xff262626),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          Flexible(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                data["status"],
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                data["transationID"],
-                style: TextStyle(color: Color(0xffa5a5a5)),
-              )
-            ],
-          )),
-          Row(
-            children: <Widget>[
-              Text(
-                "IDR ${isCashIn ? '' : '-'}25,00",
-                style: TextStyle(
-                  color: isCashIn ? Color(0xff2cc100) : Colors.white,
-                ),
-              ),
-              Icon(
-                Icons.keyboard_arrow_right,
-                color: Colors.white,
-              )
-            ],
+      child: ListTile(
+        contentPadding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+        title: Text(
+          data["status"],
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
           ),
-        ],
+        ),
+        subtitle: Text(
+          data["transationID"],
+          style: TextStyle(color: Color(0xffa5a5a5)),
+        ),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Text(
+              "IDR ${isCashIn ? '' : '-'}25,00",
+              style: TextStyle(
+                color: isCashIn ? Color(0xff2cc100) : Colors.white,
+              ),
+            ),
+            Icon(
+              Icons.keyboard_arrow_right,
+              color: Colors.white,
+            )
+          ],
+        ),
       ),
     );
   }
