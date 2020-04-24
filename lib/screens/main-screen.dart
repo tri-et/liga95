@@ -23,7 +23,7 @@ class _MainScreenState extends State<MainScreen> {
   ];
   void _navigateToPage(int index) {
     _pageController.animateToPage(index,
-        duration: Duration(milliseconds: 200), curve: Curves.bounceIn);
+        duration: Duration(milliseconds: 100), curve: Curves.bounceIn);
   }
 
   void _changeTab(int index) {

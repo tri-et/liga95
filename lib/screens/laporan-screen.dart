@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:liga95/screens/betlist-screen.dart';
+import 'package:liga95/screens/referral-screen.dart';
+import 'package:liga95/screens/statement-screen.dart';
 
 class LaporanScreen extends StatefulWidget {
   @override
@@ -63,12 +66,15 @@ class _LaporanScreenState extends State<LaporanScreen> {
               ],
             ),
           ),
-          body: TabBarView(children: [
-            Text("data"),
-            Icon(Icons.directions_transit),
-            Icon(Icons.directions_bike),
-            Icon(Icons.directions_bike),
-          ])),
+          body: Container(
+            padding: EdgeInsets.only(top:15.0),
+            child: TabBarView(children: [
+              Text("data"),
+              StatementScreen(),
+              BetListScreen(),
+              ReferralScreen(),
+            ]),
+          )),
     );
   }
 }
