@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 
-class DepositSreen extends StatelessWidget {
+class DepositSreen extends StatefulWidget {
   static const routeName = '/deposit-screen';
   static const Color colorBox = Color(0xff262626);
   static const TextStyle _lableInfo = TextStyle(
@@ -10,12 +12,41 @@ class DepositSreen extends StatelessWidget {
   static const TextStyle _lable = TextStyle(
     color: Colors.white,
   );
+
+  @override
+  _DepositSreenState createState() => _DepositSreenState();
+}
+
+class _DepositSreenState extends State<DepositSreen> {
+  final formatter = new NumberFormat("#,###");
   final InputDecoration _inputDecoration = InputDecoration(
     filled: true,
-    fillColor: colorBox,
+    fillColor: DepositSreen.colorBox,
     border: InputBorder.none,
     contentPadding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 5.0),
   );
+
+  TextEditingController _amountController;
+  void _amountOnTap(amount) {
+    setState(() {
+      _amountController.text = amount;
+      _amountController.selection = TextSelection.fromPosition(
+          TextPosition(offset: _amountController.text.length));
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _amountController = new TextEditingController(text: '');
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _amountController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,11 +77,11 @@ class DepositSreen extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     height: 40.0,
-                    color: colorBox,
+                    color: DepositSreen.colorBox,
                     child: Center(
                       child: Text(
                         "Test ABC",
-                        style: _lableInfo,
+                        style: DepositSreen._lableInfo,
                       ),
                     ),
                   ),
@@ -62,11 +93,11 @@ class DepositSreen extends StatelessWidget {
                       Flexible(
                         child: Container(
                           height: 40.0,
-                          color: colorBox,
+                          color: DepositSreen.colorBox,
                           child: Center(
                             child: Text(
                               "Bank BCA",
-                              style: _lableInfo,
+                              style: DepositSreen._lableInfo,
                             ),
                           ),
                         ),
@@ -75,11 +106,11 @@ class DepositSreen extends StatelessWidget {
                       Flexible(
                         child: Container(
                           height: 40.0,
-                          color: colorBox,
+                          color: DepositSreen.colorBox,
                           child: Center(
                             child: Text(
                               "108544323428",
-                              style: _lableInfo,
+                              style: DepositSreen._lableInfo,
                             ),
                           ),
                         ),
@@ -98,7 +129,7 @@ class DepositSreen extends StatelessWidget {
                             children: <Widget>[
                               Text(
                                 "Ke Bank",
-                                style: _lable,
+                                style: DepositSreen._lable,
                               ),
                               SizedBox(height: 5.0),
                               SizedBox(
@@ -122,13 +153,13 @@ class DepositSreen extends StatelessWidget {
                             children: <Widget>[
                               Text(
                                 "Nama Acount",
-                                style: _lable,
+                                style: DepositSreen._lable,
                               ),
                               SizedBox(height: 5.0),
                               SizedBox(
                                 height: 45.0,
                                 child: TextField(
-                                  style: _lable,
+                                  style: DepositSreen._lable,
                                   decoration: _inputDecoration,
                                 ),
                               ),
@@ -144,13 +175,13 @@ class DepositSreen extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "Nomor Account",
-                        style: _lable,
+                        style: DepositSreen._lable,
                       ),
                       SizedBox(height: 5.0),
                       SizedBox(
                         height: 45.0,
                         child: TextField(
-                          style: _lable,
+                          style: DepositSreen._lable,
                           decoration: _inputDecoration,
                         ),
                       ),
@@ -161,42 +192,16 @@ class DepositSreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Flexible(
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 60.0,
-                          width: double.infinity,
-                          color: colorBox,
-                          child: Text(
-                            "50,000",
-                            style: _lable.copyWith(fontSize: 18.0),
-                          ),
-                        ),
+                        child: Amount(amount: "50,000", onTap: _amountOnTap),
                       ),
                       SizedBox(width: 4.0),
                       Flexible(
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: double.infinity,
-                          height: 60.0,
-                          color: colorBox,
-                          child: Text(
-                            "100,000",
-                            style: _lable.copyWith(fontSize: 18.0),
-                          ),
-                        ),
+                        child: Amount(amount: "100,000", onTap: _amountOnTap),
                       ),
                       SizedBox(width: 4.0),
                       Flexible(
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: double.infinity,
-                          height: 60.0,
-                          color: colorBox,
-                          child: Text(
-                            "100,000,000",
-                            style: _lable.copyWith(fontSize: 18.0),
-                          ),
-                        ),
+                        child:
+                            Amount(amount: "100,000,000", onTap: _amountOnTap),
                       ),
                     ],
                   ),
@@ -206,6 +211,12 @@ class DepositSreen extends StatelessWidget {
                   SizedBox(
                     height: 45.0,
                     child: TextField(
+                      inputFormatters: <TextInputFormatter>[
+                        WhitelistingTextInputFormatter.digitsOnly,
+                        CurrencyInputFormatter()
+                      ],
+                      keyboardType: TextInputType.number,
+                      controller: _amountController,
                       decoration: _inputDecoration.copyWith(
                           fillColor: Colors.white,
                           hintText: 'Enter at least IDR 50,000'),
@@ -219,13 +230,11 @@ class DepositSreen extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "Catatan -",
-                        style: _lable,
+                        style: DepositSreen._lable,
                       ),
                       SizedBox(height: 5.0),
                       SizedBox(
-                        //height: 999.0,
                         child: TextField(
-                          //minLines: 10,
                           maxLines: 7,
                           decoration: _inputDecoration.copyWith(
                               fillColor: Colors.white),
@@ -274,5 +283,53 @@ class TransferButton extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class Amount extends StatelessWidget {
+  final String amount;
+  final Function(String) onTap;
+  Amount({@required this.amount, @required this.onTap});
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => onTap(amount),
+      child: Container(
+        alignment: Alignment.center,
+        height: 60.0,
+        width: double.infinity,
+        color: Color(0xff262626),
+        child: Text(
+          amount,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18.0,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CurrencyInputFormatter extends TextInputFormatter {
+  CurrencyInputFormatter({this.maxDigits});
+  final int maxDigits;
+
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    if (newValue.selection.baseOffset == 0) {
+      return newValue;
+    }
+
+    if (maxDigits != null && newValue.selection.baseOffset > maxDigits) {
+      return oldValue;
+    }
+
+    double value = double.parse(newValue.text);
+    final formatter = new NumberFormat("#,###");
+    String newText = formatter.format(value);
+    return newValue.copyWith(
+        text: newText,
+        selection: new TextSelection.collapsed(offset: newText.length));
   }
 }

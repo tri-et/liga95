@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:liga95/core/models/bank.dart';
 import 'package:liga95/screens/main-screen.dart';
+import 'package:liga95/screens/wallet-screen.dart';
 
 class BankScreen extends StatefulWidget {
   static const routeName = '/bank-screen';
@@ -134,7 +135,8 @@ class _BankScreenState extends State<BankScreen> {
             Center(
               child: FlatButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(MainScreen.routeName);
+                  // Navigator.of(context).pushNamed(MainScreen.routeName);
+                  Navigator.of(context).pushNamed(WalletScreen.routeName);
                 },
                 child: Text("Continue", style: _labletTextStyle),
               ),
