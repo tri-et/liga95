@@ -40,11 +40,14 @@ class _LigaExpansionTileState extends State<LigaExpansionTile> with SingleTicker
 
     widget.children.asMap().forEach((index, value) {
       _list.add(value);
-      if (index < widget.children.length - 1)
-        _list.add(LigaDivider());
-      else
-        _list.add(SizedBox(height: 10.0));
+      if (index < widget.children.length - 1) _list.add(LigaDivider());
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 
   @override
@@ -58,7 +61,12 @@ class _LigaExpansionTileState extends State<LigaExpansionTile> with SingleTicker
               return ClipRect(
                 child: Align(
                   heightFactor: _heightFactor.value,
-                  child: Column(children: _list),
+                  child: Container(
+                    padding: EdgeInsets.only(bottom: 15.0),
+                    child: Column(
+                      children: _list,
+                    ),
+                  ),
                 ),
               );
             }),
