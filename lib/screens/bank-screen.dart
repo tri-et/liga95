@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liga95/core/models/bank.dart';
 import 'package:liga95/screens/main-screen.dart';
-import 'package:liga95/screens/wallet-screen.dart';
 
 class BankScreen extends StatefulWidget {
   static const routeName = '/bank-screen';

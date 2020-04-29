@@ -22,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
     AccountScreen(),
   ];
   void _navigateToPage(int index) {
-    _pageController.animateToPage(index, duration: Duration(milliseconds: 100), curve: Curves.bounceInOut);
+    _pageController.animateToPage(index, duration: Duration(milliseconds: 300), curve: Curves.bounceInOut);
   }
 
   void _changeTab(int index) {
