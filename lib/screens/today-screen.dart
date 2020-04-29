@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:liga95/screens/history-sreen.dart';
 
 class TodayScreen extends StatelessWidget {
   static var formatter = DateFormat('E, dd  MMM  yyyy');
@@ -41,7 +42,7 @@ class TodayScreen extends StatelessWidget {
               ),
               FlatButton(
                 onPressed: () {
-                  print("testing");
+                  Navigator.pushNamed(context, HistoryScreen.routeName);
                 },
                 padding: EdgeInsets.all(0.0),
                 child: Text(

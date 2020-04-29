@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:liga95/screens/bank-screen.dart';
 import 'package:liga95/screens/deposit-screen.dart';
+import 'package:liga95/screens/history-sreen.dart';
 import 'package:liga95/screens/login-screen.dart';
 import 'package:liga95/screens/main-screen.dart';
 import 'package:liga95/screens/wallet-screen.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         WithdrawSreen.routeName: (_) => WithdrawSreen(),
         MainScreen.routeName: (_) => MainScreen(),
         WalletScreen.routeName: (_) => WalletScreen(),
+        HistoryScreen.routeName: (_) => HistoryScreen(),
       },
     );
   }

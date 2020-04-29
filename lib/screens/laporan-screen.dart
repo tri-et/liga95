@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liga95/screens/betlist-screen.dart';
+import 'package:liga95/screens/history-sreen.dart';
 import 'package:liga95/screens/referral-screen.dart';
 import 'package:liga95/screens/statement-screen.dart';
 import 'package:liga95/screens/today-screen.dart';
@@ -50,7 +51,9 @@ class _LaporanScreenState extends State<LaporanScreen> with SingleTickerProvider
           actions: <Widget>[
             FlatButton(
               textColor: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, HistoryScreen.routeName);
+              },
               child: Text(
                 "History",
                 style: TextStyle(
